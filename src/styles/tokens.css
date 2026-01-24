@@ -1,0 +1,17 @@
+:root {
+  /* Colors */
+  --bg: #f4f0ee;          /* теплий сірий фон */
+  --text: #6f6f6f;        /* основний сірий */
+  --muted: #8a8a8a;
+
+  --accent-green: #b8c98c; /* зелена плашка активного пункту */
+  --accent-purple: #7b74b8;/* кнопка Learn more */
+
+  /* Layout */
+  --container: 1120px;
+  --radius: 14px;
+
+  /* Typography */
+  --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-serif: "Cinzel", "Times New Roman", serif;
+}

@@ -1,0 +1,60 @@
+/* globals.css */
+
+/* Единый источник токенов (чтобы не зависеть от tokens.css, который сейчас не импортится) */
+:root {
+  /* Layout */
+  --page-pad-x: clamp(16px, 3vw, 48px);
+  --nav-h: clamp(72px, 8vh, 96px);
+
+  /* Colors */
+  --bg: #f4f1ee;
+  --text: #6e6e6e;
+  --muted: rgba(110, 110, 110, 0.72);
+  --line: rgba(90, 90, 90, 0.18);
+
+  --accent-green: #b8c98c; /* активная вкладка */
+  --cta: #7a74b4;          /* кнопка */
+  --ctaText: #ffffff;
+
+  /* Typography */
+  --font-sans: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  --font-serif: "Cinzel", "Trajan Pro", "Times New Roman", serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100svh;
+  width: 100vw;
+}
+
+/* Нормализация */
+button {
+  font: inherit;
+  color: inherit;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}

@@ -1,0 +1,66 @@
+/* Navbar.module.css */
+
+.header {
+  height: var(--nav-h);
+  width: 100%;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+  padding: clamp(16px, 2.2vh, 22px) var(--page-pad-x) 0 var(--page-pad-x);
+}
+
+.burger {
+  width: 44px;
+  height: 34px;
+  padding: 0;
+  border: 0;
+  background: transparent;
+
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+
+  opacity: 0.55;
+  cursor: pointer;
+}
+
+.burger span {
+  display: block;
+  height: 3px;
+  width: 26px;
+  background: rgba(110, 110, 110, 0.45);
+  border-radius: 2px;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(18px, 2.6vw, 34px);
+
+  font-size: clamp(18px, 1.55vw, 22px);
+  letter-spacing: 0.2px;
+  color: rgba(115, 115, 115, 0.85);
+}
+
+.link {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+
+  padding: 10px 14px;
+  border-radius: 12px;
+
+  color: rgba(115, 115, 115, 0.85);
+}
+
+.link:hover {
+  color: rgba(90, 90, 90, 0.95);
+}
+
+.active {
+  background: var(--accent-green);
+  color: rgba(255, 255, 255, 0.94);
+}

@@ -1,0 +1,44 @@
+/* Footer.module.css */
+
+.footer {
+  width: 100%;
+  padding: 0 var(--page-pad-x) clamp(12px, 2.2vh, 26px);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  gap: clamp(10px, 1.8vh, 16px);
+}
+
+.divider {
+  width: 100%;
+  height: 2px;
+  background: var(--line);
+}
+
+.logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: clamp(16px, 2.8vw, 40px);
+}
+
+.vline {
+  width: 1px;
+  height: clamp(38px, 6vh, 70px);
+  background: rgba(90, 90, 90, 0.22);
+}
+
+.ucu {
+  height: clamp(48px, 7.2vh, 96px);
+  width: auto;
+  opacity: 0.78;
+}
+
+.asf {
+  height: clamp(38px, 6.2vh, 86px);
+  width: auto;
+  opacity: 0.78;
+}

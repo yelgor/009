@@ -21,7 +21,7 @@ export default function Navbar({ active, onChange }) {
             key={it.id}
             type="button"
             className={`${s.link} ${active === it.id ? s.active : ""}`}
-            onClick={() => onChange(active === it.id ? null : it.id)}
+            onClick={() => onChange(it.id)}
           >
             {it.label}
           </button>

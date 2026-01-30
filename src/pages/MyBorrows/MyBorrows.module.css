@@ -1,0 +1,475 @@
+/* MyBorrows.module.css */
+
+.page {
+  width: 100vw;
+  min-height: 100svh;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.frame {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px var(--page-pad-x);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* ============ ЗАГОЛОВОК ============ */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.title {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+/* ============ СПИСОК ПОЗИК ============ */
+.borrowsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.borrowItem {
+  display: grid;
+  grid-template-columns: 80px 1fr auto auto auto auto;
+  gap: 18px;
+  align-items: center;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(90, 90, 90, 0.12);
+  border-radius: var(--radius);
+  transition: all 0.2s;
+}
+
+.borrowItem:hover {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.itemImage {
+  font-size: 48px;
+  text-align: center;
+  line-height: 1;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.itemName {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemCategory {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.dateColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 4px;
+}
+
+.datesSection {
+  display: flex;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.dateRow {
+  display: flex;
+  gap: 32px;
+  margin-top: 4px;
+}
+
+.dateGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dateLabel {
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+.dateValue {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.statusColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.itemActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* ============ СТАТУС КНОПКА ============ */
+.statusBtn {
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.statusActive {
+  background: #7dd3c0;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.statusActive:hover {
+  background: #6ac4b0;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(125, 211, 192, 0.3);
+}
+
+.statusSoon {
+  background: #ffc857;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.statusSoon:hover {
+  background: #ffb834;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(255, 200, 87, 0.3);
+}
+
+.deleteBtn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(90, 90, 90, 0.12);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+  background: rgba(255, 200, 200, 0.5);
+  border-color: rgba(200, 100, 100, 0.3);
+}
+
+/* ============ СТАТИСТИКА ============ */
+.statistics {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 24px;
+  background: rgba(184, 201, 140, 0.06);
+  border: 1px solid rgba(184, 201, 140, 0.15);
+  border-radius: var(--radius);
+}
+
+.statsRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(90, 90, 90, 0.08);
+}
+
+.statsRow:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.statsLabel {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.statsValue {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.statsValueDate {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff9500;
+}
+
+/* ============ OVERLAY/PANEL ============ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  cursor: default;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.panel {
+  position: fixed;
+  inset: calc(var(--nav-h) + 12px) clamp(12px, 2.5vw, 18px)
+    clamp(12px, 2.5vw, 18px) clamp(12px, 2.5vw, 18px);
+
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 90, 90, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 60;
+}
+
+.panelHeader {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(90, 90, 90, 0.14);
+}
+
+.panelTitle {
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.close {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(90, 90, 90, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.close:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.panelBody {
+  padding: 18px;
+  overflow: auto;
+}
+
+.placeholder {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .main {
+    padding: 32px var(--page-pad-x);
+  }
+}
+
+@media (max-width: 768px) {
+  .borrowItem {
+    grid-template-columns: 60px 1fr auto auto auto;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .itemImage {
+    font-size: 36px;
+  }
+
+  .dateColumn {
+    gap: 3px;
+  }
+
+  .dateLabel {
+    font-size: 10px;
+  }
+
+  .dateValue {
+    font-size: 13px;
+  }
+
+  .datesSection {
+    gap: 16px;
+    font-size: 12px;
+  }
+
+  .dateRow {
+    gap: 16px;
+    font-size: 12px;
+  }
+
+  .itemActions {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .statusBtn {
+    width: 100%;
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+
+  .deleteBtn {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: 24px;
+  }
+
+  .borrowItem {
+    grid-template-columns: 50px 1fr auto auto;
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .itemImage {
+    font-size: 32px;
+  }
+
+  .dateColumn {
+    gap: 2px;
+  }
+
+  .dateLabel {
+    font-size: 9px;
+  }
+
+  .dateValue {
+    font-size: 12px;
+  }
+
+  .datesSection {
+    grid-column: 1 / -1;
+    gap: 12px;
+    font-size: 11px;
+    margin-top: 8px;
+  }
+
+  .statusColumn {
+    grid-column: 1 / -1;
+  }
+
+  .itemActions {
+    grid-column: 1 / -1;
+    display: flex;
+    gap: 8px;
+    margin-top: 8px;
+  }
+
+  .statusBtn {
+    flex: 1;
+    padding: 8px 12px;
+  }
+
+  .dateRow {
+    gap: 12px;
+    font-size: 11px;
+  }
+
+  .statistics {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .statsRow {
+    padding-bottom: 12px;
+  }
+
+  .statsLabel {
+    font-size: 12px;
+  }
+
+  .statsValue,
+  .statsValueDate {
+    font-size: 16px;
+  }
+}

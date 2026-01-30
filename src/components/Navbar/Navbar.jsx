@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import s from "./Navbar.module.css";
 
 const items = [
@@ -9,11 +10,13 @@ const items = [
 export default function Navbar({ active, onChange }) {
   return (
     <header className={s.header}>
-      <button className={s.burger} aria-label="Open menu" type="button">
-        <span />
-        <span />
-        <span />
-      </button>
+      <Link to="/" className={s.logo}>
+        <button className={s.burger} aria-label="Open menu" type="button">
+          <span />
+          <span />
+          <span />
+        </button>
+      </Link>
 
       <nav className={s.nav}>
         {items.map((it) => (
@@ -26,6 +29,14 @@ export default function Navbar({ active, onChange }) {
             {it.label}
           </button>
         ))}
+
+        <Link to="/my-borrows" className={s.cartLink} aria-label="My borrows">
+          📋
+        </Link>
+
+        <Link to="/cart" className={s.cartLink} aria-label="Go to cart">
+          🛒
+        </Link>
       </nav>
     </header>
   );

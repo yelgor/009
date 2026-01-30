@@ -1,0 +1,387 @@
+/* Cart.module.css */
+
+.page {
+  width: 100vw;
+  min-height: 100svh;
+  background: var(--bg);
+  overflow-x: hidden;
+}
+
+.frame {
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.body {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 48px var(--page-pad-x);
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.footer {
+  margin-top: auto;
+}
+
+/* ============ ЛІВА СТОРОНА - КАРТИНА ============ */
+.cartSection {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.cartHeader {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.cartTitle {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  margin: 0;
+}
+
+.itemCount {
+  font-size: 18px;
+  color: var(--muted);
+}
+
+.itemsList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cartItem {
+  display: grid;
+  grid-template-columns: 80px 1fr 80px 40px;
+  gap: 16px;
+  align-items: center;
+  padding: 18px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(90, 90, 90, 0.12);
+  border-radius: var(--radius);
+  transition: background 0.2s;
+}
+
+.cartItem:hover {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.itemImage {
+  font-size: 48px;
+  text-align: center;
+  line-height: 1;
+}
+
+.itemContent {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.itemName {
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemCategory {
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0;
+}
+
+.itemQuantity {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.quantityLabel {
+  font-size: 14px;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.deleteBtn {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(90, 90, 90, 0.12);
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+  display: grid;
+  place-items: center;
+  transition: all 0.2s;
+}
+
+.deleteBtn:hover {
+  background: rgba(255, 200, 200, 0.5);
+  border-color: rgba(200, 100, 100, 0.3);
+}
+
+/* ============ ПРАВА СТОРОНА - ФОРМА ============ */
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formTitle {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--text);
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text);
+  letter-spacing: 0.01em;
+}
+
+.input,
+.textarea {
+  padding: 12px 16px;
+  border: 1px solid rgba(90, 90, 90, 0.18);
+  border-radius: var(--radius);
+  background: rgba(255, 255, 255, 0.6);
+  color: var(--text);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.input::placeholder,
+.textarea::placeholder {
+  color: var(--muted);
+}
+
+.input:focus,
+.textarea:focus {
+  outline: none;
+  border-color: var(--accent-green);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 0 3px rgba(184, 201, 140, 0.1);
+}
+
+.textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.quantityInfo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background: rgba(184, 201, 140, 0.08);
+  border-radius: var(--radius);
+  border: 1px solid rgba(184, 201, 140, 0.15);
+}
+
+.quantityValue {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent-green);
+}
+
+.submitBtn {
+  padding: 14px 24px;
+  background: var(--cta);
+  color: var(--ctaText);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 12px;
+}
+
+.submitBtn:hover {
+  background: #6d68a3;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(122, 116, 180, 0.3);
+}
+
+.submitBtn:active {
+  transform: translateY(0);
+}
+
+.disclaimer {
+  font-size: 12px;
+  color: var(--muted);
+  line-height: 1.5;
+  margin: 0;
+  text-align: center;
+}
+
+/* ============ OVERLAY/PANEL ============ */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+}
+
+.backdrop {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  cursor: default;
+  background: rgba(0, 0, 0, 0.08);
+}
+
+.panel {
+  position: fixed;
+  inset: calc(var(--nav-h) + 12px) clamp(12px, 2.5vw, 18px)
+    clamp(12px, 2.5vw, 18px) clamp(12px, 2.5vw, 18px);
+
+  background: rgba(255, 255, 255, 0.86);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(90, 90, 90, 0.18);
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 60;
+}
+
+.panelHeader {
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 18px;
+  border-bottom: 1px solid rgba(90, 90, 90, 0.14);
+}
+
+.panelTitle {
+  font-size: 18px;
+  letter-spacing: 0.02em;
+  color: var(--text);
+}
+
+.close {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+
+  border: 1px solid rgba(90, 90, 90, 0.18);
+  background: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+
+  display: grid;
+  place-items: center;
+
+  font-size: 18px;
+  line-height: 1;
+  color: var(--text);
+}
+
+.close:hover {
+  background: rgba(255, 255, 255, 0.92);
+}
+
+.panelBody {
+  padding: 18px;
+  overflow: auto;
+}
+
+.placeholder {
+  margin: 0;
+  color: var(--muted);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .main {
+    padding: 32px var(--page-pad-x);
+  }
+}
+
+@media (max-width: 640px) {
+  .cartTitle {
+    font-size: 24px;
+  }
+
+  .cartItem {
+    grid-template-columns: 60px 1fr 30px;
+    gap: 12px;
+    padding: 14px;
+  }
+
+  .itemImage {
+    font-size: 36px;
+  }
+
+  .itemQuantity {
+    display: none;
+  }
+
+  .formTitle {
+    font-size: 20px;
+  }
+
+  .main {
+    padding: 24px var(--page-pad-x);
+  }
+}

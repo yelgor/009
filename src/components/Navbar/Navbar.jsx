@@ -10,21 +10,33 @@ const navItems = [
 export default function Navbar() {
   return (
     <header className={s.header}>
-      {/* Лого / кнопка (оставляем как "кнопку", чтобы не ломать стили) */}
-      <button type="button" className={s.logoBtn}>
+      {/* Лого */}
+      <NavLink to="/" className={s.logoBtn} aria-label="Home">
         009
-      </button>
+      </NavLink>
 
       <nav className={s.nav}>
         {navItems.map((item) => (
           <NavLink
             key={item.id}
             to={item.id}
-            className={({ isActive }) => `${s.link} ${isActive ? s.active : ""}`}
+            className={({ isActive }) =>
+              `${s.link} ${isActive ? s.active : ""}`
+            }
           >
             {item.label}
           </NavLink>
         ))}
+
+        {/* My borrows */}
+        <NavLink to="/my-borrows" className={s.cartLink} aria-label="My borrows">
+          📋
+        </NavLink>
+
+        {/* Cart */}
+        <NavLink to="/cart" className={s.cartLink} aria-label="Go to cart">
+          🛒
+        </NavLink>
       </nav>
 
       {/* Кнопки авторизации */}
@@ -50,3 +62,4 @@ export default function Navbar() {
     </header>
   );
 }
+

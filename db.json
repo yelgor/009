@@ -1,0 +1,29 @@
+{
+  "equipment": [
+    {
+      "id": 1,
+      "title": "Arduino UNO",
+      "category": "MCU",
+      "description": "Basic prototyping board",
+      "image": "arduino.webp",
+      "available": true
+    },
+    {
+      "id": 2,
+      "title": "STM32 Nucleo",
+      "category": "MCU",
+      "description": "ARM dev board",
+      "image": "stm32-nucleo.webp",
+      "available": true
+    },
+    {
+      "id": 3,
+      "title": "Soldering Iron",
+      "category": "Tools",
+      "description": "60W soldering iron",
+      "image": "soldering_iron.webp",
+      "available": false
+    }
+  ],
+  "borrows": []
+}

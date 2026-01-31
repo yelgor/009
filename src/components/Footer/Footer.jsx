@@ -1,16 +1,16 @@
-import styles from "./Footer.module.css";
-
-import ucuLogo from "../../assets/ucu-emblem.png";
-import asfLogo from "../../assets/asf-emblem.png";
+import s from "./Footer.module.css";
+import ucuEmblem from "../../assets/ucu-emblem.png";
+import asfEmblem from "../../assets/asf-emblem.png";
 
 export default function Footer() {
   return (
-    <footer className={styles.footer}>
-      <div className={styles.divider} />
-      <div className={styles.logos}>
-        <img className={styles.ucu} src={ucuLogo} alt="UCU" />
-        <div className={styles.vline} />
-        <img className={styles.asf} src={asfLogo} alt="Applied Sciences Faculty" />
+    <footer className={s.footer}>
+      <div className={s.inner}>
+        <div className={s.row}>
+          <img className={s.logo} src={ucuEmblem} alt="UK logo" />
+          <span className={s.divider} aria-hidden="true" />
+          <img className={s.logoWide} src={asfEmblem} alt="Applied Sciences Faculty" />
+        </div>
       </div>
     </footer>
   );

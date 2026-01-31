@@ -40,16 +40,16 @@ export default function Equipment() {
           <main className={s.main}>
             <div style={{ width: "100%", padding: "20px 20px", display: "flex", flexDirection: "column", alignItems: "center", height: "100%" }}>
               <h1 style={{ textAlign: "center", marginBottom: "35px", color: "#999", margin: "0 0 35px 0" }}>Available equipment</h1>
-              
-              <div style={{ 
+
+              <div style={{
                 width: "100%",
                 maxWidth: "1200px",
                 flex: 1,
                 overflowY: "auto",
                 paddingRight: "10px"
               }}>
-                <div style={{ 
-                  display: "grid", 
+                <div style={{
+                  display: "grid",
                   gridTemplateColumns: "repeat(5, 1fr)",
                   gap: "18px"
                 }}>
@@ -84,8 +84,8 @@ export default function Equipment() {
                       }}
                     >
                       {item.image ? (
-                        <img 
-                          src={item.image} 
+                        <img
+                          src={item.image}
                           alt={item.name}
                           style={{
                             width: "100%",

@@ -1,20 +1,18 @@
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import { NavLink } from "react-router-dom";
 import s from "./Navbar.module.css";
 
 const navItems = [
   { id: "/", label: "Home" },
   { id: "/equipment", label: "Equipment" },
-  { id: "/account", label: "Account" },
-  { id: "/docs", label: "Docs" },
 ];
 
 export default function Navbar() {
   return (
     <header className={s.header}>
-      <button className={s.burger} aria-label="Open menu" type="button">
-        <span />
-        <span />
-        <span />
+      {/* Лого / кнопка (оставляем как "кнопку", чтобы не ломать стили) */}
+      <button type="button" className={s.logoBtn}>
+        009
       </button>
 
       <nav className={s.nav}>
@@ -22,28 +20,27 @@ export default function Navbar() {
           <NavLink
             key={item.id}
             to={item.id}
-            className={({ isActive }) => 
-              `${s.link} ${isActive ? s.active : ""}`
-            }
+            className={({ isActive }) => `${s.link} ${isActive ? s.active : ""}`}
           >
             {item.label}
           </NavLink>
         ))}
       </nav>
-      
-      {/* Додаємо кнопки авторизації */}
+
+      {/* Кнопки авторизации */}
       <div className={s.authButtons}>
-        <NavLink 
-          to="/login" 
-          className={({ isActive }) => 
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
             `${s.loginButton} ${isActive ? s.active : ""}`
           }
         >
           Sign In
         </NavLink>
-        <NavLink 
-          to="/signup" 
-          className={({ isActive }) => 
+
+        <NavLink
+          to="/signup"
+          className={({ isActive }) =>
             `${s.signupButton} ${isActive ? s.active : ""}`
           }
         >

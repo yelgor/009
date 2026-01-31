@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import s from "./Home.module.css";
 
 import Navbar from "../../components/Navbar/Navbar.jsx";
@@ -6,9 +7,18 @@ import Hero from "../../components/Hero/Hero.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 
 export default function Home() {
+  const navigate = useNavigate();
   const [activePanel, setActivePanel] = useState(null);
 
   const closePanel = () => setActivePanel(null);
+
+  const handlePanelClick = (id) => {
+    if (id === "equipment") {
+      navigate("/equipment");
+    } else {
+      setActivePanel(activePanel === id ? null : id);
+    }
+  };
 
   // Esc + lock body scroll when panel opened
   useEffect(() => {
@@ -33,7 +43,7 @@ export default function Home() {
   return (
     <div className={s.page}>
       <div className={s.frame}>
-        <Navbar active={activePanel} onChange={setActivePanel} />
+        <Navbar active={activePanel} onChange={handlePanelClick} />
 
         {}
         <div className={s.body} aria-hidden={Boolean(activePanel)}>
@@ -45,42 +55,6 @@ export default function Home() {
             <Footer />
           </footer>
         </div>
-
-        {/* */}
-        {activePanel && (
-          <div className={s.overlay} role="dialog" aria-label="Panel">
-            <div className={s.panel}>
-              <div className={s.panelHeader}>
-                <div className={s.panelTitle}>
-                  {activePanel === "equipment" && "Equipment"}
-                  {activePanel === "account" && "Account"}
-                  {activePanel === "docs" && "Docs"}
-                </div>
-
-                <button
-                  className={s.close}
-                  type="button"
-                  onClick={closePanel}
-                  aria-label="Close"
-                >
-                  ✕
-                </button>
-              </div>
-
-              <div className={s.panelBody}>
-                <p className={s.placeholder}>Panel content…</p>
-              </div>
-            </div>
-
-            {}
-            <button
-              className={s.backdrop}
-              type="button"
-              onClick={closePanel}
-              aria-label="Close panel"
-            />
-          </div>
-        )}
       </div>
     </div>
   );

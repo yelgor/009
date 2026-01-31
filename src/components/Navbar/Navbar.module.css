@@ -64,3 +64,53 @@
   background: var(--accent-green);
   color: rgba(255, 255, 255, 0.94);
 }
+
+/* ... твої існуючі стилі ... */
+
+.authButtons {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  margin-left: auto;
+}
+
+.loginButton,
+.signupButton {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.loginButton {
+  color: #7F73BF;
+  border: 1px solid #7F73BF;
+  background: transparent;
+}
+
+.loginButton:hover,
+.loginButton.active {
+  background-color: #7F73BF;
+  color: white;
+}
+
+.signupButton {
+  background-color: #7F73BF;
+  color: white;
+  border: 1px solid #7F73BF;
+}
+
+.signupButton:hover,
+.signupButton.active {
+  background-color: #6B63B5;
+  border-color: #6B63B5;
+}
+
+/* Адаптивність для мобільних */
+@media (max-width: 768px) {
+  .authButtons {
+    display: none; /* Ховаємо на мобільних, можна додати в бургер-меню */
+  }
+}

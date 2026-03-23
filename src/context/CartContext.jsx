@@ -1,24 +1,29 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const CartContext = createContext();
+const CART_STORAGE_KEY = "borrow_cart";
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useState([
-    {
-      id: 1,
-      name: "SRM32 Blue Pill",
-      category: "Мікроконтролер",
-      quantity: 1,
-      image: "📟",
-    },
-    {
-      id: 2,
-      name: "Логічний аналізатор",
-      category: "Вимірювальний приклад",
-      quantity: 1,
-      image: "🔍",
-    },
-  ]);
+  const [cart, setCart] = useState(() => {
+    if (typeof window === "undefined") return [];
+
+    try {
+      const raw = localStorage.getItem(CART_STORAGE_KEY);
+      if (!raw) return [];
+
+      const parsed = JSON.parse(raw);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch {
+      return [];
+    }
+  });
+
+  useEffect(() => {
+    try {
+      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart));
+    } catch {
+    }
+  }, [cart]);
 
   const addToCart = (item) => {
     setCart((prevCart) => {
@@ -28,7 +33,7 @@ export function CartProvider({ children }) {
           i.id === item.id ? { ...i, quantity: i.quantity + 1 } : i
         );
       }
-      return [...prevCart, item];
+      return [...prevCart, { ...item, quantity: 1 }];
     });
   };
 

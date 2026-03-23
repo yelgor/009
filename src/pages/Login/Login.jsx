@@ -1,63 +1,68 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import styles from './Login.module.css';
+import { getUserByEmail } from '../../api/http';
 
 const Login = () => {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState({
-    email: '',
-    password: ''
-  });
+  const location = useLocation();
+  const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-    if (errors[name]) {
-      setErrors(prev => ({ ...prev, [name]: '' }));
-    }
+    setFormData(prev => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
   const validateForm = () => {
     const newErrors = {};
-    
     if (!formData.email.trim()) {
       newErrors.email = 'Email is required';
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
       newErrors.email = 'Please enter a valid email';
     }
-    
     if (!formData.password) {
       newErrors.password = 'Password is required';
     }
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!validateForm()) {
-      return;
-    }
-    
+    if (!validateForm()) return;
+
     setIsLoading(true);
-    
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      alert('Login successful!');
-      navigate('/');
+      const normalizedEmail = formData.email.trim().toLowerCase();
+      const users = await getUserByEmail(normalizedEmail);
+
+      if (users.length === 0) {
+        setErrors({ general: 'Користувача з таким email не знайдено.' });
+        return;
+      }
+
+      const user = users[0];
+      if (user.password !== formData.password) {
+        setErrors({ general: 'Невірний пароль.' });
+        return;
+      }
+
+      sessionStorage.setItem('currentUser', JSON.stringify({ id: user.id, email: user.email }));
+
+      const redirectTo = location.state?.from;
+      if (redirectTo) {
+        navigate(redirectTo, { replace: true });
+      } else if (window.history.length > 1) {
+        navigate(-1);
+      } else {
+        navigate('/', { replace: true });
+      }
     } catch (error) {
-      console.error('Login error:', error);
-      setErrors({ 
-        general: 'Invalid email or password. Please try again.' 
-      });
+      setErrors({ general: 'Помилка входу. Спробуйте ще раз.' });
     } finally {
       setIsLoading(false);
     }
@@ -65,7 +70,6 @@ const Login = () => {
 
   return (
     <div className={styles.pageWrapper}>
-      {}
       <div className={styles.container}>
         <div className={styles.card}>
           <div className={styles.header}>
@@ -106,29 +110,17 @@ const Login = () => {
               <div className={styles.generalError}>{errors.general}</div>
             )}
 
-            <button 
-              type="submit" 
-              className={styles.submitButton}
-              disabled={isLoading}
-            >
-              {isLoading ? (
-                <span className={styles.loadingText}>Signing In...</span>
-              ) : (
-                'Sign In'
-              )}
+            <button type="submit" className={styles.submitButton} disabled={isLoading}>
+              {isLoading ? <span className={styles.loadingText}>Signing In...</span> : 'Sign In'}
             </button>
 
             <div className={styles.footer}>
               <span className={styles.footerText}>Don't have an account? </span>
-              <Link to="/signup" className={styles.footerLink}>
-                Sign up
-              </Link>
+              <Link to="/signup" state={{ from: location.state?.from || '/' }} className={styles.footerLink}>Sign up</Link>
             </div>
           </form>
         </div>
       </div>
-      
-      {}
       <Footer />
     </div>
   );

@@ -1,11 +1,30 @@
-import { NavLink } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import s from "./Navbar.module.css";
 
 export default function Navbar() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const [currentUser, setCurrentUser] = useState(null);
+
+  useEffect(() => {
+    try {
+      const raw = sessionStorage.getItem("currentUser");
+      setCurrentUser(raw ? JSON.parse(raw) : null);
+    } catch {
+      setCurrentUser(null);
+    }
+  }, [location.pathname]);
+
+  const handleLogout = () => {
+    sessionStorage.removeItem("currentUser");
+    setCurrentUser(null);
+    navigate("/", { replace: true });
+  };
+
   return (
     <header className={s.header}>
       <div className={s.inner}>
-        {/* LEFT: 009 + Equipment рядом */}
         <div className={s.left}>
           <NavLink to="/" className={s.logo}>
             009
@@ -21,7 +40,6 @@ export default function Navbar() {
           </nav>
         </div>
 
-        {/* RIGHT: icons + auth */}
         <div className={s.right}>
           <NavLink to="/my-borrows" className={s.iconLink} aria-label="My borrows">
             📋
@@ -32,12 +50,23 @@ export default function Navbar() {
           </NavLink>
 
           <div className={s.auth}>
-            <NavLink to="/login" className={s.btnGhost}>
-              Sign In
-            </NavLink>
-            <NavLink to="/signup" className={s.btnPrimary}>
-              Sign Up
-            </NavLink>
+            {currentUser?.email ? (
+              <>
+                <span className={s.userEmail}>{currentUser.email}</span>
+                <button type="button" className={s.btnGhost} onClick={handleLogout}>
+                  Вийти
+                </button>
+              </>
+            ) : (
+              <>
+                <NavLink to="/login" className={s.btnGhost}>
+                  Sign In
+                </NavLink>
+                <NavLink to="/signup" className={s.btnPrimary}>
+                  Sign Up
+                </NavLink>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -1,29 +1,295 @@
 {
+  "users": [
+    {
+      "email": "zabchuk.pn@gmail.com",
+      "password": "111111",
+      "id": 1
+    },
+    {
+      "email": "zabchuk.pn@ucu.edu.ua",
+      "password": "111111",
+      "id": 2
+    },
+    {
+      "email": "zaaabchuk.pn@ucu.edu.ua",
+      "password": "111111",
+      "id": 3
+    },
+    {
+      "email": "zabchuuuk.pn@ucu.edu.ua",
+      "password": "111111",
+      "id": 4
+    }
+  ],
   "equipment": [
     {
       "id": 1,
-      "title": "Arduino UNO",
-      "category": "MCU",
-      "description": "Basic prototyping board",
-      "image": "arduino.webp",
+      "title": "Логічний аналізатор",
+      "category": "Вимірювання",
+      "image": "logic_analyzer.jpeg",
+      "description": "Пристрій для захоплення та аналізу цифрових сигналів у схемах мікроконтролерів і цифрової логіки.",
+      "specs": "Підтримка цифрових інтерфейсів (UART, SPI, I2C), багатоканальний захоплення сигналів, аналіз часових діаграм",
       "available": true
     },
     {
       "id": 2,
-      "title": "STM32 Nucleo",
+      "title": "STM32",
       "category": "MCU",
-      "description": "ARM dev board",
       "image": "stm32-nucleo.webp",
+      "description": "Сімейство 32-бітних мікроконтролерів на базі ARM Cortex для вбудованих систем реального часу.",
+      "specs": "ARM Cortex-M, низьке енергоспоживання, широкий набір периферії (GPIO, ADC, UART, SPI, I2C)",
       "available": true
     },
     {
       "id": 3,
-      "title": "Soldering Iron",
-      "category": "Tools",
-      "description": "60W soldering iron",
+      "title": "ESP32",
+      "category": "MCU",
+      "image": "esp32.jpg",
+      "description": "Мікроконтролер із вбудованими бездротовими інтерфейсами для IoT та embedded-застосувань.",
+      "specs": "Wi-Fi та Bluetooth, двоядерний процесор, підтримка FreeRTOS, багата периферія",
+      "available": true
+    },
+    {
+      "id": 4,
+      "title": "HC-SR04",
+      "category": "Датчики",
+      "image": "hc-sr04.jpg",
+      "description": "Ультразвуковий датчик для безконтактного вимірювання відстані.",
+      "specs": "Діапазон вимірювання ~2–400 см, ультразвуковий принцип роботи, цифровий інтерфейс",
+      "available": true
+    },
+    {
+      "id": 5,
+      "title": "KY-033",
+      "category": "Датчики",
+      "image": "line_sensor.webp",
+      "description": "Інфрачервоний датчик для виявлення лінії або контрастних поверхонь.",
+      "specs": "ІЧ-світлодіод і фотодіод, цифровий вихід, налаштування чутливості",
+      "available": true
+    },
+    {
+      "id": 6,
+      "title": "Arduino UNO",
+      "category": "MCU",
+      "image": "arduino.jpg",
+      "description": "Мікроконтролерна плата для швидкого прототипування та навчальних проєктів.",
+      "specs": "ATmega328P, USB-підключення, цифрові та аналогові входи/виходи, підтримка Arduino IDE",
+      "available": true
+    },
+    {
+      "id": 7,
+      "title": "Мультиметр",
+      "category": "Вимірювання",
+      "image": "multimeter.webp",
+      "description": "Вимірювальний прилад для діагностики електричних кіл.",
+      "specs": "Вимірювання напруги, струму та опору, режим перевірки діодів і цілісності кола",
+      "available": true
+    },
+    {
+      "id": 8,
+      "title": "Щит для Arduino",
+      "category": "Аксесуари",
+      "image": "arduino_shild.webp",
+      "description": "Модуль-розширення для Arduino, що спрощує підключення додаткових пристроїв.",
+      "specs": "Сумісність з Arduino UNO, розширення GPIO, швидке підключення модулів",
+      "available": true
+    },
+    {
+      "id": 9,
+      "title": "Паяльник",
+      "category": "Інструменти",
       "image": "soldering_iron.webp",
+      "description": "Інструмент для монтажу та ремонту електронних компонентів.",
+      "specs": "Регулювання температури, змінні жала, стабільний тепловий режим",
       "available": false
+    },
+    {
+      "id": 10,
+      "title": "Акумулятор",
+      "category": "Живлення",
+      "image": "battery.jpg",
+      "description": "Перезаряджуваний Li-Po акумулятор для автономного живлення електронних пристроїв.",
+      "specs": "Висока енергетична щільність, низька вага, потребує контролю заряду",
+      "available": true
+    },
+    {
+      "id": 11,
+      "title": "Резистор",
+      "category": "Компоненти",
+      "image": "resistors.webp",
+      "description": "Пасивний електронний компонент для обмеження струму та поділу напруги.",
+      "specs": "Різні номінали опору, стандартні допуски, використання у сигнальних і силових схемах",
+      "available": true
+    },
+    {
+      "id": 12,
+      "title": "Конденсатор",
+      "category": "Компоненти",
+      "image": "cond.webp",
+      "description": "Пасивний компонент для накопичення електричного заряду та фільтрації сигналів.",
+      "specs": "Різні типи (керамічні, електролітичні), згладжування пульсацій, розв'язка живлення",
+      "available": true
+    },
+    {
+      "id": 13,
+      "title": "Діод",
+      "category": "Компоненти",
+      "image": "diod.jpeg",
+      "description": "Напівпровідниковий компонент для пропускання струму в одному напрямку.",
+      "specs": "Захист від зворотної полярності, випрямлення змінного струму",
+      "available": true
+    },
+    {
+      "id": 14,
+      "title": "Транзистор",
+      "category": "Компоненти",
+      "image": "transistor.jpeg",
+      "description": "Активний напівпровідниковий компонент для підсилення та комутації сигналів.",
+      "specs": "Керування струмом або напругою, використання як ключ або підсилювач",
+      "available": true
+    },
+    {
+      "id": 15,
+      "title": "Макетна дошка",
+      "category": "Інструменти",
+      "image": "breadboard.jpg",
+      "description": "Інструмент для швидкого прототипування електронних схем без пайки.",
+      "specs": "Повторне використання, зручність тестування схем, стандартні контактні доріжки",
+      "available": true
     }
   ],
-  "borrows": []
+  "borrows": [
+    {
+      "email": "zaaabchuk.pn@ucu.edu.ua",
+      "returnDate": "2026-03-27",
+      "comment": "",
+      "items": [
+        {
+          "id": 4,
+          "name": "HC-SR04",
+          "category": "Датчики",
+          "quantity": 1
+        }
+      ],
+      "borrowDate": "23.03.2026",
+      "status": "active",
+      "id": 3
+    },
+    {
+      "email": "zaaabchuk.pn@ucu.edu.ua",
+      "returnDate": "2026-03-26",
+      "comment": "",
+      "items": [
+        {
+          "id": 2,
+          "name": "STM32",
+          "category": "MCU",
+          "quantity": 1
+        },
+        {
+          "id": 5,
+          "name": "KY-033",
+          "category": "Датчики",
+          "quantity": 1
+        }
+      ],
+      "borrowDate": "23.03.2026",
+      "status": "active",
+      "id": 4
+    },
+    {
+      "email": "zabchuk.pn@ucu.edu.ua",
+      "returnDate": "2026-03-27",
+      "comment": "варавиаа",
+      "items": [
+        {
+          "id": 7,
+          "name": "Мультиметр",
+          "category": "Вимірювання",
+          "quantity": 1
+        }
+      ],
+      "borrowDate": "23.03.2026",
+      "status": "active",
+      "id": 5
+    },
+    {
+      "email": "zabchuk.pn@ucu.edu.ua",
+      "returnDate": "2026-03-27",
+      "comment": "парьпрьп",
+      "items": [
+        {
+          "id": 2,
+          "name": "STM32",
+          "category": "MCU",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "ESP32",
+          "category": "MCU",
+          "quantity": 1
+        }
+      ],
+      "borrowDate": "23.03.2026",
+      "status": "active",
+      "id": 6
+    },
+    {
+      "email": "zabchuuuk.pn@ucu.edu.ua",
+      "returnDate": "2026-04-04",
+      "comment": "",
+      "items": [
+        {
+          "id": 2,
+          "name": "STM32",
+          "category": "MCU",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "ESP32",
+          "category": "MCU",
+          "quantity": 1
+        }
+      ],
+      "borrowDate": "23.03.2026",
+      "status": "active",
+      "id": 7
+    },
+    {
+      "email": "zabchuk.pn@ucu.edu.ua",
+      "returnDate": "2026-03-27",
+      "comment": "",
+      "items": [
+        {
+          "id": 10,
+          "name": "Акумулятор",
+          "category": "Живлення",
+          "quantity": 1
+        },
+        {
+          "id": 2,
+          "name": "STM32",
+          "category": "MCU",
+          "quantity": 1
+        },
+        {
+          "id": 3,
+          "name": "ESP32",
+          "category": "MCU",
+          "quantity": 1
+        },
+        {
+          "id": 1,
+          "name": "Логічний аналізатор",
+          "category": "Вимірювання",
+          "quantity": 1
+        }
+      ],
+      "borrowDate": "23.03.2026",
+      "status": "active",
+      "id": 8
+    }
+  ]
 }

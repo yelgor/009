@@ -1,6 +1,6 @@
 :root {
   --bg: #f6f3ef;
-  --green: #AFD46E; /* твой зеленый */
+  --green: #AFD46E;
   --purple: #6b4bbf;
   --purpleBorder: rgba(90, 46, 166, 0.35);
   --line: rgba(0, 0, 0, 0.08);
@@ -15,7 +15,7 @@
 .inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 20px;
+  padding: 14px clamp(4px, 1vw, 10px);
 
   display: flex;
   align-items: center;
@@ -23,15 +23,13 @@
   gap: 16px;
 }
 
-/* LEFT cluster: 009 + Equipment */
 .left {
   display: flex;
   align-items: center;
-  gap: 14px;
+  gap: 16px;
   min-width: 0;
 }
 
-/* 009 */
 .logo {
   text-decoration: none;
   font-weight: 800;
@@ -40,7 +38,6 @@
   white-space: nowrap;
 }
 
-/* Equipment button */
 .nav {
   display: flex;
   align-items: center;
@@ -68,7 +65,6 @@
   background: rgba(175, 212, 110, 0.12);
 }
 
-/* RIGHT cluster */
 .right {
   display: flex;
   align-items: center;
@@ -76,7 +72,6 @@
   flex-wrap: nowrap;
 }
 
-/* icons */
 .iconLink {
   text-decoration: none;
   font-size: 18px;
@@ -97,7 +92,6 @@
   background: rgba(0, 0, 0, 0.06);
 }
 
-/* auth buttons */
 .auth {
   display: flex;
   align-items: center;
@@ -114,10 +108,21 @@
   border: 1px solid var(--purpleBorder);
   color: #5a2ea6;
   background: transparent;
+  font: inherit;
+  cursor: pointer;
 }
 
 .btnGhost:hover {
   background: rgba(107, 75, 191, 0.08);
+}
+
+.userEmail {
+  max-width: 220px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 13px;
+  color: var(--text);
 }
 
 .btnPrimary {
@@ -134,10 +139,9 @@
   filter: brightness(0.95);
 }
 
-/* small screens */
 @media (max-width: 520px) {
   .inner {
-    padding: 12px 14px;
+    padding: 12px 4px;
   }
 
   .navBtn,

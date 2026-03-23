@@ -1,5 +1,7 @@
+const BASE_URL = "";
+
 export async function apiFetch(path, options = {}) {
-  const res = await fetch(path, {
+  const res = await fetch(`${BASE_URL}${path}`, {
     headers: { "Content-Type": "application/json", ...(options.headers || {}) },
     ...options,
   });
@@ -13,3 +15,19 @@ export async function apiFetch(path, options = {}) {
   if (contentType.includes("application/json")) return res.json();
   return res.text();
 }
+
+export const getEquipment = () => apiFetch("/equipment");
+export const getEquipmentById = (id) => apiFetch(`/equipment/${id}`);
+
+export const getUserByEmail = (email) =>
+  apiFetch(`/users?email=${encodeURIComponent(email)}`);
+export const createUser = (userData) =>
+  apiFetch("/users", { method: "POST", body: JSON.stringify(userData) });
+
+export const getBorrows = () => apiFetch("/borrows");
+export const getBorrowsByEmail = (email) =>
+  apiFetch(`/borrows?email=${encodeURIComponent(email)}`);
+export const createBorrow = (borrowData) =>
+  apiFetch("/borrows", { method: "POST", body: JSON.stringify(borrowData) });
+export const deleteBorrow = (id) =>
+  apiFetch(`/borrows/${id}`, { method: "DELETE" });

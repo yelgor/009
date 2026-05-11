@@ -307,8 +307,8 @@
 
 .panel {
   position: fixed;
-  inset: calc(var(--nav-h) + 12px) clamp(12px, 2.5vw, 18px)
-    clamp(12px, 2.5vw, 18px) clamp(12px, 2.5vw, 18px);
+  inset: calc(var(--nav-h) + 12px) 16px
+    16px 16px;
 
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(10px);
@@ -406,4 +406,26 @@
   .main {
     padding: 24px var(--page-pad-x);
   }
+}
+
+.mutedMessage {
+  color: #999;
+  margin-top: 20px;
+}
+
+.successMessage {
+  color: #5a8;
+  font-weight: 600;
+  margin-top: 20px;
+}
+
+.errorMessage {
+  color: #c5162e;
+  font-size: 13px;
+  margin: 4px 0;
+}
+
+.submitBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }

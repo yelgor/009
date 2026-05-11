@@ -164,3 +164,34 @@
     padding: 20px;
   }
 }
+
+.pageState,
+.pageError {
+  padding: 40px;
+  text-align: center;
+  color: #999;
+}
+
+.pageError {
+  color: #c5162e;
+}
+
+.statusAvailable,
+.statusUnavailable {
+  font-size: 14px;
+  font-weight: 500;
+  margin: 8px 0 16px;
+}
+
+.statusAvailable {
+  color: #5a8;
+}
+
+.statusUnavailable {
+  color: #e05;
+}
+
+.reserveBtn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

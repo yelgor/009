@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.6256701e.css",
+    "main.js": "/static/js/main.285bf644.js",
+    "static/media/logo-009.png": "/static/media/logo-009.9e67065c05a74a0df74c.png",
+    "static/media/ucu-emblem.png": "/static/media/ucu-emblem.ec2f6e7a7b70b4bbecd3.png",
+    "static/media/battery.jpg": "/static/media/battery.38d8421faa4eb1455bbf.jpg",
+    "static/media/real.jpeg": "/static/media/real.df56b3d05615f977bfa8.jpeg",
+    "static/media/hc-sr04.jpg": "/static/media/hc-sr04.7f5aa36d70bde94ff3c3.jpg",
+    "static/media/diod.jpeg": "/static/media/diod.4e32bae36b0f899bab38.jpeg",
+    "static/media/logic_analyzer.jpeg": "/static/media/logic_analyzer.9c67b74befef25093bb1.jpeg",
+    "static/media/arduino_mega.webp": "/static/media/arduino_mega.968f9e3ce1af3b880411.webp",
+    "static/media/soldering_iron.webp": "/static/media/soldering_iron.7776282adad5b87c0132.webp",
+    "static/media/stm32-nucleo.webp": "/static/media/stm32-nucleo.271298cfde9e67b12670.webp",
+    "static/media/esp32.jpg": "/static/media/esp32.fa16bb440c20230698a3.jpg",
+    "static/media/asf-emblem.png": "/static/media/asf-emblem.7162c162a353d82968b6.png",
+    "static/media/breadboard.jpg": "/static/media/breadboard.d312cf6f041f71a2e646.jpg",
+    "static/media/arduino_shild.webp": "/static/media/arduino_shild.4321590542f4a570c408.webp",
+    "static/media/cond.webp": "/static/media/cond.f6d70825ff0b58e3c8fc.webp",
+    "static/media/resistors.webp": "/static/media/resistors.570c4272e57edf9c0f69.webp",
+    "static/media/arduino.jpg": "/static/media/arduino.37a52b262ac648c74e96.jpg",
+    "static/media/multimeter.webp": "/static/media/multimeter.6d171a72255d920239dd.webp",
+    "static/media/line_sensor.webp": "/static/media/line_sensor.f060f392a26a38007c1b.webp",
+    "index.html": "/index.html",
+    "main.6256701e.css.map": "/static/css/main.6256701e.css.map",
+    "main.285bf644.js.map": "/static/js/main.285bf644.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.6256701e.css",
+    "static/js/main.285bf644.js"
+  ]
+}

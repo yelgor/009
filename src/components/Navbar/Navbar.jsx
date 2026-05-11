@@ -1,24 +1,13 @@
-import { useEffect, useState } from "react";
-import { NavLink, useLocation, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useAuth } from "../../context/AuthContext.jsx";
 import s from "./Navbar.module.css";
 
 export default function Navbar() {
   const navigate = useNavigate();
-  const location = useLocation();
-  const [currentUser, setCurrentUser] = useState(null);
-
-  useEffect(() => {
-    try {
-      const raw = sessionStorage.getItem("currentUser");
-      setCurrentUser(raw ? JSON.parse(raw) : null);
-    } catch {
-      setCurrentUser(null);
-    }
-  }, [location.pathname]);
+  const { currentUser, logout } = useAuth();
 
   const handleLogout = () => {
-    sessionStorage.removeItem("currentUser");
-    setCurrentUser(null);
+    logout();
     navigate("/", { replace: true });
   };
 
@@ -31,11 +20,11 @@ export default function Navbar() {
           </NavLink>
 
           <nav className={s.nav}>
-            <NavLink
-              to="/equipment"
-              className={({ isActive }) => (isActive ? s.navBtnActive : s.navBtn)}
-            >
+            <NavLink to="/equipment" className={({ isActive }) => (isActive ? s.navBtnActive : s.navBtn)}>
               Equipment
+            </NavLink>
+            <NavLink to="/equipment/new" className={({ isActive }) => (isActive ? s.navBtnActive : s.navBtn)}>
+              Add equipment
             </NavLink>
           </nav>
         </div>

@@ -1,0 +1,114 @@
+.page {
+  min-height: 100svh;
+  background: var(--bg);
+}
+
+.frame {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 32px 20px;
+}
+
+.card {
+  width: min(760px, 100%);
+  background: rgba(255, 255, 255, 0.86);
+  border: 1px solid rgba(90, 90, 90, 0.18);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.08);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 22px;
+}
+
+.title {
+  margin: 0;
+  color: var(--text);
+  font-size: 30px;
+}
+
+.backButton,
+.submitButton {
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.backButton {
+  padding: 9px 16px;
+  background: #ffffff;
+  color: var(--text);
+  border: 1px solid rgba(90, 90, 90, 0.18);
+}
+
+.form {
+  display: grid;
+  gap: 16px;
+}
+
+.field {
+  display: grid;
+  gap: 7px;
+}
+
+.label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.input,
+.textarea {
+  width: 100%;
+  border: 1px solid rgba(90, 90, 90, 0.22);
+  border-radius: 12px;
+  background: #fff;
+  color: var(--text);
+  padding: 11px 12px;
+  font: inherit;
+}
+
+.textarea {
+  min-height: 96px;
+  resize: vertical;
+}
+
+.checkboxField {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+}
+
+.error {
+  margin: 0;
+  color: #c5162e;
+  font-size: 14px;
+}
+
+.submitButton {
+  justify-self: start;
+  padding: 11px 24px;
+  background: var(--cta);
+  color: var(--ctaText);
+}
+
+.submitButton:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

@@ -3,10 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import styles from './SignUp.module.css';
 import { getUserByEmail, createUser } from '../../api/http';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 const SignUp = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { setCurrentUser } = useAuth();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -62,10 +64,7 @@ const SignUp = () => {
 
       const createdUser = await createUser({ email: normalizedEmail, password: formData.password });
 
-      sessionStorage.setItem(
-        'currentUser',
-        JSON.stringify({ id: createdUser.id, email: createdUser.email })
-      );
+      setCurrentUser({ id: createdUser.id, email: createdUser.email });
 
       const redirectTo = location.state?.from || '/';
       navigate(redirectTo, { replace: true });

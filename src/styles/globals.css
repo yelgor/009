@@ -3,8 +3,8 @@
 /* Единый источник токенов (чтобы не зависеть от tokens.css, который сейчас не импортится) */
 :root {
   /* Layout */
-  --page-pad-x: clamp(16px, 3vw, 48px);
-  --nav-h: clamp(72px, 8vh, 96px);
+  --page-pad-x: 32px;
+  --nav-h: 84px;
 
   /* Colors */
   --bg: #f4f1ee;

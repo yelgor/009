@@ -345,8 +345,8 @@
 
 .panel {
   position: fixed;
-  inset: calc(var(--nav-h) + 12px) clamp(12px, 2.5vw, 18px)
-    clamp(12px, 2.5vw, 18px) clamp(12px, 2.5vw, 18px);
+  inset: calc(var(--nav-h) + 12px) 16px
+    16px 16px;
 
   background: rgba(255, 255, 255, 0.86);
   backdrop-filter: blur(10px);
@@ -529,4 +529,12 @@
   .statsValueDate {
     font-size: 16px;
   }
+}
+
+.mutedMessage {
+  color: #999;
+}
+
+.errorMessage {
+  color: #c5162e;
 }

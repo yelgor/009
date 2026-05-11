@@ -19,6 +19,11 @@
       "email": "zabchuuuk.pn@ucu.edu.ua",
       "password": "111111",
       "id": 4
+    },
+    {
+      "email": "yeliseyev.pn@ucu.edu.ua",
+      "password": "123321505",
+      "id": 5
     }
   ],
   "equipment": [
@@ -156,6 +161,15 @@
       "description": "Інструмент для швидкого прототипування електронних схем без пайки.",
       "specs": "Повторне використання, зручність тестування схем, стандартні контактні доріжки",
       "available": true
+    },
+    {
+      "title": "12333",
+      "category": "1233",
+      "image": null,
+      "description": "12333",
+      "specs": "",
+      "available": true,
+      "id": 16
     }
   ],
   "borrows": [

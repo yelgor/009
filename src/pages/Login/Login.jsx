@@ -3,10 +3,12 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Footer from '../../components/Footer/Footer';
 import styles from './Login.module.css';
 import { getUserByEmail } from '../../api/http';
+import { useAuth } from '../../context/AuthContext.jsx';
 
 const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
+  const { setCurrentUser } = useAuth();
   const [formData, setFormData] = useState({ email: '', password: '' });
   const [errors, setErrors] = useState({});
   const [isLoading, setIsLoading] = useState(false);
@@ -51,7 +53,7 @@ const Login = () => {
         return;
       }
 
-      sessionStorage.setItem('currentUser', JSON.stringify({ id: user.id, email: user.email }));
+      setCurrentUser({ id: user.id, email: user.email });
 
       const redirectTo = location.state?.from;
       if (redirectTo) {

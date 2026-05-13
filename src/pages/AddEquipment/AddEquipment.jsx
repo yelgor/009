@@ -3,17 +3,27 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import { createEquipment } from "../../api/http.js";
-import { equipmentImageOptions } from "../../utils/equipmentImages.js";
+import ImageDropzone from "./components/ImageDropzone.jsx";
 import s from "./AddEquipment.module.css";
 
 const initialForm = {
   title: "",
   category: "",
   image: "",
+  imageData: "",
   description: "",
   specs: "",
   available: true,
 };
+
+function readImageFile(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error("Не вдалося прочитати файл."));
+    reader.readAsDataURL(file);
+  });
+}
 
 export default function AddEquipment() {
   const navigate = useNavigate();
@@ -32,6 +42,26 @@ export default function AddEquipment() {
     setError(null);
   };
 
+  const handleFileSelect = async (file) => {
+    if (!file.type.startsWith("image/")) {
+      setError("Оберіть файл зображення.");
+      return;
+    }
+
+    try {
+      const imageData = await readImageFile(file);
+      setForm((prev) => ({ ...prev, image: file.name, imageData }));
+      setError(null);
+    } catch (err) {
+      setError(err.message);
+    }
+  };
+
+  const clearImage = () => {
+    setForm((prev) => ({ ...prev, image: "", imageData: "" }));
+    setError(null);
+  };
+
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -46,13 +76,14 @@ export default function AddEquipment() {
       const created = await createEquipment({
         title: form.title.trim(),
         category: form.category.trim(),
-        image: form.image || null,
+        image: form.image.trim() || null,
+        imageData: form.imageData || null,
         description: form.description.trim(),
         specs: form.specs.trim(),
         available: form.available,
       });
       navigate(`/equipment/${created.id}`);
-    } catch (err) {
+    } catch {
       setError("Не вдалося додати обладнання. Перевірте, що json-server запущений.");
     } finally {
       setSubmitting(false);
@@ -83,17 +114,15 @@ export default function AddEquipment() {
                 <input className={s.input} name="category" value={form.category} onChange={handleChange} />
               </label>
 
-              <label className={s.field}>
+              <div className={s.field}>
                 <span className={s.label}>Зображення</span>
-                <select className={s.input} name="image" value={form.image} onChange={handleChange}>
-                  <option value="">Без зображення</option>
-                  {equipmentImageOptions.map((imageName) => (
-                    <option key={imageName} value={imageName}>
-                      {imageName}
-                    </option>
-                  ))}
-                </select>
-              </label>
+                <ImageDropzone
+                  previewSrc={form.imageData}
+                  fileName={form.image}
+                  onFileSelect={handleFileSelect}
+                  onClear={clearImage}
+                />
+              </div>
 
               <label className={s.field}>
                 <span className={s.label}>Опис</span>

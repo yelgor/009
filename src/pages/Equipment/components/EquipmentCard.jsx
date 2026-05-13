@@ -1,8 +1,8 @@
-import { getEquipmentImage } from "../../../utils/equipmentImages.js";
+import { resolveEquipmentImageSrc } from "../../../utils/equipmentImageSrc.js";
 import s from "../Equipment.module.css";
 
 export default function EquipmentCard({ item, onOpen }) {
-  const imageSrc = getEquipmentImage(item.image);
+  const imageSrc = resolveEquipmentImageSrc(item);
   const isAvailable = item.available !== false;
 
   return (

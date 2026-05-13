@@ -5,7 +5,7 @@ import Navbar from "../../components/Navbar/Navbar.jsx";
 import Footer from "../../components/Footer/Footer.jsx";
 import { getEquipmentById } from "../../api/http.js";
 import { useCart } from "../../context/CartContext.jsx";
-import { getEquipmentImage } from "../../utils/equipmentImages.js";
+import { resolveEquipmentImageSrc } from "../../utils/equipmentImageSrc.js";
 
 export default function EquipmentDetail() {
   const { id } = useParams();
@@ -42,7 +42,7 @@ export default function EquipmentDetail() {
   if (error) return <div className={s.pageError}>Помилка: {error}</div>;
   if (!equipment) return <div className={s.pageState}>Обладнання не знайдено</div>;
 
-  const imageSrc = getEquipmentImage(equipment.image);
+  const imageSrc = resolveEquipmentImageSrc(equipment);
   const isDisabled = equipment.available === false || added;
 
   return (

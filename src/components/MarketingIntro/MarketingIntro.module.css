@@ -98,3 +98,34 @@
     padding: 12px 32px;
   }
 }
+
+/* Mobile extension. */
+@media (max-width: 560px) {
+  .intro {
+    padding: 28px 16px;
+  }
+
+  .logo {
+    width: min(82vw, 360px);
+    max-height: 28svh;
+    margin-top: 0;
+  }
+
+  .title {
+    font-size: clamp(28px, 10vw, 38px);
+    letter-spacing: 0.12em;
+    overflow-wrap: anywhere;
+  }
+
+  .subtitle {
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    line-height: 1.5;
+  }
+
+  .cta,
+  .modalAction {
+    width: 100%;
+    min-height: 44px;
+  }
+}

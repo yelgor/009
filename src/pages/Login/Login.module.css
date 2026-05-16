@@ -234,3 +234,25 @@
     -webkit-text-fill-color: #1D1D20 !important;
     transition: background-color 5000s ease-in-out 0s;
 }
+/* Mobile extension. */
+@media (max-width: 560px) {
+  .container {
+    padding: 24px 12px;
+    align-items: flex-start;
+  }
+
+  .card {
+    max-width: none;
+    padding: 24px 18px;
+    border-radius: 22px;
+  }
+
+  .form {
+    gap: 18px;
+  }
+
+  .submitButton {
+    width: 100%;
+    min-height: 48px;
+  }
+}

@@ -538,3 +538,57 @@
 .errorMessage {
   color: #c5162e;
 }
+
+/* Mobile extension. */
+@media (max-width: 780px) {
+  .main {
+    padding: 28px 16px;
+  }
+
+  .container {
+    width: 100%;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .borrowRow,
+  .borrowCard {
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 560px) {
+  .main {
+    padding: 20px 12px 28px;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .borrowRow,
+  .borrowCard,
+  .statCard {
+    padding: 16px;
+    border-radius: 16px;
+  }
+
+  .actions,
+  .rowActions {
+    width: 100%;
+  }
+
+  .deleteButton,
+  .returnButton,
+  .cancelButton {
+    min-height: 44px;
+  }
+}

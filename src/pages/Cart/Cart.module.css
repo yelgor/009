@@ -429,3 +429,65 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* Mobile extension. */
+@media (max-width: 860px) {
+  .main {
+    padding: 28px 16px;
+  }
+
+  .container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+}
+
+@media (max-width: 560px) {
+  .main {
+    padding: 20px 12px 28px;
+  }
+
+  .cartHeader {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .cartTitle {
+    font-size: 26px;
+  }
+
+  .cartItem {
+    grid-template-columns: 1fr auto;
+    gap: 10px;
+    align-items: start;
+  }
+
+  .itemContent {
+    min-width: 0;
+  }
+
+  .itemQuantity {
+    grid-column: 1 / 2;
+  }
+
+  .deleteBtn {
+    grid-row: 1 / span 2;
+    grid-column: 2;
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  .formCard,
+  .cartSection {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .submitBtn,
+  .clearBtn {
+    width: 100%;
+    min-height: 46px;
+  }
+}

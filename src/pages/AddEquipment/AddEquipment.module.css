@@ -224,3 +224,40 @@
     aspect-ratio: 4 / 3;
   }
 }
+
+/* Mobile extension. */
+@media (max-width: 620px) {
+  .main {
+    padding: 20px 12px 28px;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 18px;
+  }
+
+  .header {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .title {
+    font-size: 26px;
+  }
+
+  .backButton,
+  .submitButton,
+  .clearImageButton {
+    min-height: 44px;
+  }
+
+  .submitButton {
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  .dropzone,
+  .dropzoneLabel {
+    min-height: 132px;
+  }
+}

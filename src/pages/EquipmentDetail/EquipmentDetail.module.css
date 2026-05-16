@@ -195,3 +195,50 @@
   opacity: 0.6;
   cursor: not-allowed;
 }
+
+/* Mobile extension. */
+@media (max-width: 560px) {
+  .page,
+  .frame {
+    height: auto;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .body {
+    overflow-y: visible;
+  }
+
+  .main {
+    padding: 20px 16px 28px;
+  }
+
+  .backBtn {
+    margin-bottom: 18px;
+    min-height: 44px;
+  }
+
+  .content {
+    gap: 22px;
+  }
+
+  .image,
+  .imagePlaceholder {
+    max-width: 100%;
+  }
+
+  .imagePlaceholder {
+    height: auto;
+    aspect-ratio: 1 / 1;
+  }
+
+  .infoSection {
+    gap: 16px;
+  }
+
+  .reserveBtn {
+    width: 100%;
+    min-height: 48px;
+  }
+}

@@ -171,3 +171,70 @@
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 }
+
+/* Mobile extension: removes desktop viewport locking only on small screens. */
+@media (max-width: 760px) {
+  .page,
+  .frame {
+    height: auto;
+    min-height: 100svh;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .main {
+    overflow: visible;
+    align-items: stretch;
+  }
+
+  .content {
+    height: auto;
+    padding: 18px 16px 24px;
+    align-items: stretch;
+  }
+
+  .headerRow {
+    margin-bottom: 18px;
+    gap: 12px;
+  }
+
+  .title {
+    font-size: clamp(24px, 8vw, 30px);
+    line-height: 1.15;
+  }
+
+  .addButton {
+    width: 100%;
+    min-height: 44px;
+  }
+
+  .gridScroll {
+    max-width: none;
+    overflow: visible;
+    padding-right: 0;
+  }
+
+  .grid {
+    gap: 14px;
+  }
+
+  .card {
+    min-height: 220px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 460px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    min-height: auto;
+  }
+
+  .cardImage,
+  .imagePlaceholder {
+    aspect-ratio: 16 / 10;
+  }
+}

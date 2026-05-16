@@ -155,3 +155,79 @@
     gap: 8px;
   }
 }
+
+/* Mobile extension: keeps the same Navbar component and routes. */
+@media (max-width: 760px) {
+  .inner {
+    padding: 12px 16px;
+    align-items: stretch;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .left,
+  .right,
+  .auth {
+    width: 100%;
+  }
+
+  .left {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .nav {
+    width: 100%;
+    overflow-x: auto;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  .right {
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .auth {
+    justify-content: flex-end;
+    min-width: 0;
+  }
+
+  .userEmail {
+    max-width: 42vw;
+  }
+
+  .navBtn,
+  .navBtnActive,
+  .btnGhost,
+  .btnPrimary {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 420px) {
+  .inner {
+    padding-inline: 12px;
+  }
+
+  .right {
+    flex-wrap: wrap;
+  }
+
+  .auth {
+    flex: 1 1 100%;
+    justify-content: space-between;
+  }
+
+  .userEmail {
+    max-width: 58vw;
+  }
+}

@@ -58,3 +58,31 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+/* Responsive extension layer: added without changing application logic. */
+@media (max-width: 768px) {
+  :root {
+    --page-pad-x: 16px;
+    --nav-h: auto;
+  }
+
+  html,
+  body,
+  #root {
+    min-width: 320px;
+  }
+
+  button,
+  a,
+  input,
+  textarea,
+  select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
